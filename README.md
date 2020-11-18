@@ -6,4 +6,4 @@
 
 ## Usage
 `python pygrep.py `
-Since this Python script is executable, it can also be run by running `./pygrep`.
+Since this Python script is executable, it can also be run by running `./pygrep.py`.
