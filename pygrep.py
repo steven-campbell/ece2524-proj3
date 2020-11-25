@@ -27,7 +27,15 @@ if __name__ == "__main__":
     all_lines = [i.rstrip() for i in all_lines]
     args.search_strings = [i.rstrip() for i in args.search_strings]
     
+    match_count = 0
+
     for search in args.search_strings:
         for index, line in enumerate(all_lines):
             if search in line:
-                print(str(index) + ":" + line)
+                match_count += 1
+                if not args.c:
+                    print(str(index) + ":" + line)
+
+
+    if args.c:
+        print(match_count)
