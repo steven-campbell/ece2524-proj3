@@ -12,7 +12,7 @@ usage: pygrep.py [-h] [-i] [-s] [-c] file search_strings [search_strings ...]
 A grep-like utility written in Python
 
 positional arguments:
-  file            path to file to search within
+  file             path to file to search within
   search_strings  strings to search for within file
 
 optional arguments:
