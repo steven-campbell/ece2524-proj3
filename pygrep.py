@@ -19,3 +19,12 @@ if __name__ == "__main__":
     print("Print Count Instead: " + str(args.c))
     print("File to Search: " + args.file)
     print(args.search_strings)
+
+    # open file, read each line into a list
+    # with ... as opens and closes file descriptor automatically
+    with open(args.file, 'r') as fd:
+        all_lines = fd.readlines()
+
+
+    for line in all_lines:
+        print(line)
