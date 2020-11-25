@@ -7,7 +7,7 @@
 ## Usage
 
 ````
-usage: pygrep.py [-h] [-i] [-s] [-c] file search_strings [search_strings ...]
+usage: pygrep.py [-h] [-i] [-s] [-c] [-n] file search_strings [search_strings ...]
 
 A grep-like utility written in Python
 
@@ -20,5 +20,6 @@ optional arguments:
   -i              make search case-insensitive
   -s              print matching string and not line
   -c              print count of matches and not matches
+  -n              print line number match occurred on
 
 ````
