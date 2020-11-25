@@ -13,18 +13,21 @@ if __name__ == "__main__":
     parser.add_argument("search_strings", help="strings to search for within file", nargs="+", type=str)
     args = parser.parse_args();
     
-    # currently some test code to check it's parsing properly
-    print("Case Sensitivity: " + str(not args.i))
-    print("Print Strings Only: " + str(args.s))
-    print("Print Count Instead: " + str(args.c))
-    print("File to Search: " + args.file)
-    print(args.search_strings)
-
     # open file, read each line into a list
     # with ... as opens and closes file descriptor automatically
     with open(args.file, 'r') as fd:
         all_lines = fd.readlines()
 
+    # handle -i argument by making both search strings and file lines lowercase
+    if args.i:
+        all_lines = [i.lower() for i in all_lines]
+        args.search_strings = [i.lower() for i in args.search_strings]
 
-    for line in all_lines:
-        print(line)
+    # remove trailing whitespace from lines and search strings
+    all_lines = [i.rstrip() for i in all_lines]
+    args.search_strings = [i.rstrip() for i in args.search_strings]
+    
+    for search in args.search_strings:
+        for index, line in enumerate(all_lines):
+            if search in line:
+                print(str(index) + ":" + line)
