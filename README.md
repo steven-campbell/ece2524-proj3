@@ -4,6 +4,12 @@
 ## Project Description
 `pygrep` is a grep-like utility written in Python. It provides some of the features of the `grep` built into Unix systems, but this one is written in Python.
 
+### Project Scope Change
+This is the idea presented and approved in Project 3-1. I added several additional flags to emulate additional `grep` behavior.
+
+### Dependencies Required
+This project requires Python 3. I tested my code on Python 3.8.3. It should work on all Python 3 versions >= 3.2 (`argparse` was introduced in Python 3.2). 
+
 ## Usage
 To run this code, run `python pygrep.py` followed by the necessary command line arguments and optional flags. It can also be run with `./pygrep.py` if the user sets the script as executable using `chmod`. The full list of command line parameters and the optional flags are outlined below in the code block.
 
@@ -33,5 +39,3 @@ optional arguments:
 
 `python pygrep.py -np myfile.txt if for while not` for print the matches for the for search parameters in `myfile.txt` while also displaying additional context of line numbers of matches and which search string resulted in the match.
 
-### Project Scope Change
-This is the idea presented and approved in Project 3-1. I added several additional flags to emulate additional `grep` behavior.
