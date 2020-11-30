@@ -10,6 +10,7 @@ if __name__ == "__main__":
     parser.add_argument('-s', help="print matching string and not line", action="store_true")
     parser.add_argument('-c', help="print count of matches and not matches", action="store_true")
     parser.add_argument('-n', help="print line number match occurred on", action="store_true")
+    parser.add_argument('-p', help="print search string in result output", action="store_true")
     parser.add_argument("file", help="path to file to search within", type=str)
     parser.add_argument("search_strings", help="strings to search for within file", nargs="+", type=str)
     args = parser.parse_args()
@@ -35,14 +36,24 @@ if __name__ == "__main__":
             if search in line:
                 match_count += 1
                 if not args.c:
-                    if args.s and args.n:
-                        print(str(index) + ":" + search)
-                    elif args.s and not args.n:
-                        print(search)
-                    elif not args.s and args.n:
-                        print(str(index) + ":" + line)
-                    else: # not args.s and not args.n
-                        print(line)
+                    if args.p:
+                        if args.s and args.n:
+                            print(search + ":" + str(index) + ":" + search)
+                        elif args.s and not args.n:
+                            print(search + ":" + search)
+                        elif not args.s and args.n:
+                            print(search + ":" + str(index) + ":" + line)
+                        else: # not args.s and not args.n
+                            print(search + ":" + line)
+                    else:
+                        if args.s and args.n:
+                            print(str(index) + ":" + search)
+                        elif args.s and not args.n:
+                            print(search)
+                        elif not args.s and args.n:
+                            print(str(index) + ":" + line)
+                        else: # not args.s and not args.n
+                            print(line)
 
 
     if args.c:
