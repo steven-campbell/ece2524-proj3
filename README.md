@@ -24,3 +24,6 @@ optional arguments:
   -p              print search string in result output
 
 ````
+
+### Project Scope Change
+This is the idea presented and approved in Project 3-1. I added several additional flags to emulate additional `grep` behavior.
