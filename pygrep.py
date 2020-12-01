@@ -29,32 +29,47 @@ if __name__ == "__main__":
     all_lines = [i.rstrip() for i in all_lines]
     args.search_strings = [i.rstrip() for i in args.search_strings]
     
+    # for -c option
     match_count = 0
 
+    # iterate over all search strings
     for search in args.search_strings:
+
+        # iterate over each line
+        # enumerate() allows for an index in a pythonic fashion
         for index, line in enumerate(all_lines):
+            
+            # when a match occurs
             if search in line:
-                match_count += 1
+                match_count += 1 # add to the match_count for -c option
                 if not args.c:
-                    if args.p:
+                    if args.p: # print the search string
                         if args.s and args.n:
+                            # print search string, line number, match string
                             print(search + ":" + str(index) + ":" + search)
                         elif args.s and not args.n:
+                            # print search string and match string (weird, but a valid combo of options)
                             print(search + ":" + search)
                         elif not args.s and args.n:
+                            # print search string, line number, and line containing match
                             print(search + ":" + str(index) + ":" + line)
                         else: # not args.s and not args.n
+                            # print search string and line containing match
                             print(search + ":" + line)
-                    else:
+                    else: # not args.p (don't print the search string)
                         if args.s and args.n:
+                            # print line number and match string
                             print(str(index) + ":" + search)
                         elif args.s and not args.n:
+                            # print match string
                             print(search)
                         elif not args.s and args.n:
+                            # print line number of match and line containing match
                             print(str(index) + ":" + line)
                         else: # not args.s and not args.n
+                            # print line containing match
                             print(line)
 
-
+    # print the count instead of the actual matches
     if args.c:
         print(match_count)
